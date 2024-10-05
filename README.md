@@ -11,7 +11,7 @@
 - Waiting until <i> with text "content_copy" will be visible
 - If during 10 seconds <i> is not visible, script will be stopped and js alert `Copy link button is not found`
 - Copy link to clipboard from address bar
-- Script fiished
+- Script finished
 
 # License
 
