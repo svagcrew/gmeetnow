@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Google Meet Now",
+  "version": "1.0",
+  "description": "Automate creating a new Google Meet instant meeting.",
+  "permissions": ["scripting", "tabs", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Google Meet Now"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
