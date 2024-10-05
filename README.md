@@ -12,3 +12,8 @@
 - If during 10 seconds <i> is not visible, script will be stopped and js alert `Copy link button is not found`
 - Copy link to clipboard from address bar
 - Script fiished
+
+# License
+
+- Letter g icons created by Freepik - Flaticon: https://www.flaticon.com/free-icons/letter-g
+- Code is under MIT License
