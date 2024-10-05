@@ -1,4 +1,4 @@
-# Google Meet Now — Crome Extension
+# Google Meet Now — Chrome Extension
 
 - By clicking on the extension icon script started to run.
 - It opens https://meet.google.com/landing in new tab
@@ -10,5 +10,5 @@
 - If span is visible, script will click on it
 - Waiting until <i> with text "content_copy" will be visible
 - If during 10 seconds <i> is not visible, script will be stopped and js alert `Copy link button is not found`
-- If <i> is visible, script will click on it
+- Copy link to clipboard from address bar
 - Script fiished
