@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run copy-files && npm run zip",
     "clean": "rimraf dist && rimraf google-meet-now-extension.zip",
     "copy-files": "cpy \"src/**\" dist",
-    "zip": "bestzip google-meet-now-extension.zip dist/*"
+    "zip": "cd dist && bestzip ../google-meet-now-extension.zip *"
   },
   "author": "Your Name",
   "license": "MIT",
