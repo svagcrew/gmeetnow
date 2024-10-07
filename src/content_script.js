@@ -1,6 +1,13 @@
 // Global flag to prevent duplicate execution
 let scriptStarted = false;
 
+const textsNew = ["New meeting", "Новая встреча"];
+
+const textsStart = [
+  "Start an instant meeting",
+  "Начать встречу с мгновенным запуском",
+];
+
 (function () {
   // Check if the script has already started
   if (scriptStarted) return;
@@ -13,7 +20,7 @@ let scriptStarted = false;
   // Function to wait for an element
   function waitForElement(
     selector,
-    textContent,
+    textContent, // string or array of strings
     timeout,
     errorMessage,
     additionalWait = 0
@@ -25,7 +32,11 @@ let scriptStarted = false;
       const checkExist = setInterval(function () {
         const elements = document.querySelectorAll(selector);
         for (let element of elements) {
-          if (element.textContent.trim() === textContent) {
+          const elementTextContent = element.textContent.trim();
+          const isTextContentSuitable = Array.isArray(textContent)
+            ? textContent.includes(elementTextContent)
+            : elementTextContent === textContent;
+          if (isTextContentSuitable) {
             clearInterval(checkExist);
             setTimeout(() => resolve(element), additionalWait);
             return;
@@ -58,18 +69,13 @@ let scriptStarted = false;
 
   function startAutomationFromLandingPage() {
     // Step 1: Click "New meeting"
-    waitForElement(
-      "span",
-      "New meeting",
-      10000,
-      '"New meeting" button is not found'
-    )
+    waitForElement("span", textsNew, 10000, '"New meeting" button is not found')
       .then(function (newMeetingButton) {
         newMeetingButton.click();
         // Step 2: Click "Start an instant meeting"
         return waitForElement(
           "span",
-          "Start an instant meeting",
+          textsStart,
           2000,
           '"Start an instant meeting" button is not found'
         );

@@ -17,7 +17,7 @@ chrome.action.onClicked.addListener(function () {
       });
 
       // Listen for navigation to the meeting page
-      chrome.webNavigation.onCompleted.addListener(
+      chrome.webNavigation?.onCompleted.addListener(
         function (details) {
           if (
             details.tabId === newTab.id &&
